@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: films
+  profiles:
+    active: dev   # profil par défaut
+
+server:
+  port: 8080
+
+# Logs JPA en mode debug pour le dev
+logging:
+  level:
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
