@@ -23,7 +23,7 @@ class FilmControllerIT {
     @Test
     void post_creeUnFilm_etRetourne201() throws Exception {
         FilmCreateRequest req = new FilmCreateRequest(
-            "Inception", 2010, 148, "Christopher Nolan");
+            "Inception", "Christopher Nolan", 2010);
 
         mvc.perform(post("/api/films")
                 .contentType("application/json")
@@ -36,7 +36,7 @@ class FilmControllerIT {
     @Test
     void post_donneesInvalides_retourne400() throws Exception {
         String invalid = """
-            { "titre": "", "annee": -1, "dureeMinutes": -1, "realisateurNom": "" }
+            { "titre": "" "realisateurNom": "" , "annee": -1,}
             """;
         mvc.perform(post("/api/films")
                 .contentType("application/json")
